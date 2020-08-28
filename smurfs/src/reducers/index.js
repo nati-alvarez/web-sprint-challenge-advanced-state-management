@@ -13,6 +13,13 @@ export default function(state = initialState, action){
                 ...state,
                 loadingSmurfs: true
             }
+        case GET_SMURFS_SUCCESS:
+            return {
+                ...state,
+                smurfs: action.payload,
+                loadingSmurfs: false,
+                error: null
+            }
         default:
             return state;
     }
