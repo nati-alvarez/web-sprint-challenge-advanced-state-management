@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 import {getSmurfs} from "../actions";
 
+import Smurf from "./Smurf";
+
 import "./App.css";
 
 class App extends Component {
@@ -18,6 +20,9 @@ class App extends Component {
       <div className="App">
         <h1>SMURFS! W/Redux</h1>
         {this.props.loadingSmurfs && <p>Loading...</p>}
+        {this.props.smurfs && this.props.smurfs.map(smurf=>{
+          return <Smurf smurf={smurf}/>
+        })}
       </div>
     );
   }
