@@ -3,7 +3,10 @@ import {GET_SMURFS_START, GET_SMURFS_SUCCESS} from "../actions";
 const initialState = {
     smurfs: [],
     loadingSmurfs: false,
-    error: null
+    getSmurfsError: null,
+    creatingSmurf: false,
+    createSmurfError: null,
+    createSmurfSuccess: false
 }
 
 export default function(state = initialState, action){
@@ -18,7 +21,7 @@ export default function(state = initialState, action){
                 ...state,
                 smurfs: action.payload,
                 loadingSmurfs: false,
-                error: null
+                getSmurfsError: null
             }
         default:
             return state;

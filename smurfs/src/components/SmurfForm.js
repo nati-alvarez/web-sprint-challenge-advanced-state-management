@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import {connect} from "react-redux";
+import {createSmurf} from "../actions";
 
-const SmurfForm = () => {
+const SmurfForm = props => {
     const [formState, setFormState] = useState({
         name: "",
         age: null,
@@ -16,7 +18,7 @@ const SmurfForm = () => {
 
     const onSubmit = e =>{
         e.preventDefault();
-        console.log(formState)
+        props.createSmurf(formState);
     }
 
     return (
@@ -32,4 +34,11 @@ const SmurfForm = () => {
     )
 }
 
-export default SmurfForm;
+const mapStateToProps = state => {
+    return {
+        creatingSmurf: state.creatingSmurf,
+        createSmurfSuccess: state.createSmurfSuccess
+    }
+}
+
+export default connect(mapStateToProps, {createSmurf})(SmurfForm);
