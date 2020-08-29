@@ -5,7 +5,7 @@ import {createSmurf} from "../actions";
 const SmurfForm = props => {
     const [formState, setFormState] = useState({
         name: "",
-        age: null,
+        age: "",
         height: ""
     });
 
@@ -30,6 +30,7 @@ const SmurfForm = props => {
                 <input onChange={onChange} value={formState.height} type="text" name="height" placeholder="height"/>
             </div>
             <button>Add Smurf</button>
+            {props.creatingSmurf && <p>Creating smurf...</p>}
         </form>
     )
 }

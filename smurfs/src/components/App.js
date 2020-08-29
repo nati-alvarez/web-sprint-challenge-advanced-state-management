@@ -23,7 +23,7 @@ class App extends Component {
         <SmurfForm/>
         {this.props.loadingSmurfs && <p>Loading...</p>}
         {this.props.smurfs && this.props.smurfs.map(smurf=>{
-          return <Smurf smurf={smurf}/>
+          return <Smurf key={smurf.id} smurf={smurf}/>
         })}
       </div>
     );
