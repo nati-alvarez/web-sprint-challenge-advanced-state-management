@@ -23,6 +23,15 @@ let smurfs = [
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
+
+server.get('/smurfs/:id', (req, res)=>{
+  const findSmurfById = smurf => {
+    return smurf.id == req.params.id;
+  };
+  const smurf = smurfs.find(findSmurfById);
+  res.json(smurf);
+})
+
 let smurfId = smurfs.length;
 
 server.post('/smurfs', (req, res) => {
